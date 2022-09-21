@@ -11,20 +11,21 @@ public class GetMethod : MonoBehaviour
 
     public class Datum{
         public string id;
+        public string nama;
         public string email;
-        public string first_name;
-        public string last_name;
-        public string avatar;
+        public string username;
+        public string password;
+        public int skor;
+        public int koin;
+
     }
 
     [System.Serializable]
 
     public class IsiGet{
-    public int page;
-    public int per_page;
-    public int total;
-    public int total_pages;
-    public Datum[] data;
+    public int status;
+    public int message;
+    public Datum data;
     
     }
 
@@ -32,7 +33,7 @@ public class GetMethod : MonoBehaviour
 
     IEnumerator GetData_Coroutine(){
         
-        string uri = "https://reqres.in/api/users?page=2";
+        string uri = "https://penaksiran.digitalparamuda.com/api/members/16";
 
         using(UnityWebRequest request = UnityWebRequest.Get(uri))
         {
@@ -46,17 +47,16 @@ public class GetMethod : MonoBehaviour
                 
                 IsiGet asd = JsonUtility.FromJson<IsiGet>(request.downloadHandler.text);
 
-                Debug.Log(request.downloadHandler.text);
-                Debug.Log(asd.page);
-                Debug.Log(asd.data.Length);
+                //Debug.Log(request.downloadHandler.text);;
 
-                for(int i = 0; i < asd.data.Length;i++){
-                    Debug.Log("id :" + asd.data[i].id);
-                    Debug.Log("id :" + asd.data[i].email);
-                    Debug.Log("id :" + asd.data[i].first_name);
-                    Debug.Log("id :" + asd.data[i].last_name);
-                    Debug.Log("id :" + asd.data[i].avatar);
-                }
+                    Debug.Log("id :" + asd.data.id);
+                    Debug.Log("nama :" + asd.data.nama);
+                    Debug.Log("email :" + asd.data.email);
+                    Debug.Log("username :" + asd.data.username);
+                    Debug.Log("password :" + asd.data.password);
+                    Debug.Log("skor :" + asd.data.skor);
+                    Debug.Log("koin :" + asd.data.koin);
+            
 
                 
             }   

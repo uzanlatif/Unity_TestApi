@@ -10,10 +10,12 @@ public class PostMethod : MonoBehaviour
 
     IEnumerator PostData_Coroutine(){
     
-    string uri = "https://reqres.in/api/users/";
+    string uri = "https://penaksiran.digitalparamuda.com/api/members/edit";
     WWWForm form = new WWWForm();
 
-    form.AddField("juminten", "marko");
+    form.AddField("id", "15");
+    form.AddField("skor", "0");
+    
     using (UnityWebRequest request = UnityWebRequest.Post(uri,form)){
 
         yield return request.SendWebRequest();
