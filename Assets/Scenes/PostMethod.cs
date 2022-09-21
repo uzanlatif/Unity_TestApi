@@ -15,7 +15,7 @@ public class PostMethod : MonoBehaviour
 
     form.AddField("id", "15");
     form.AddField("skor", "0");
-    
+
     using (UnityWebRequest request = UnityWebRequest.Post(uri,form)){
 
         yield return request.SendWebRequest();
@@ -24,6 +24,7 @@ public class PostMethod : MonoBehaviour
         }
         else{
             Debug.Log(request.downloadHandler.text);
+            
         }
             
     }
