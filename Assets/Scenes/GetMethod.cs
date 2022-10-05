@@ -57,8 +57,7 @@ public class GetMethod : MonoBehaviour
                     Debug.Log("skor :" + asd.data.skor);
                     Debug.Log("koin :" + asd.data.koin);
             
-
-                
+                    Debug.Log("Modelling Params");
             }   
                 
         }
